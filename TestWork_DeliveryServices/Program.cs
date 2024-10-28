@@ -18,6 +18,7 @@ namespace TestWork_DeliveryServices
             ISave save = new Save(logger);
             TestWorks testWorks = new TestWorks(parametrs, inputData, filterData, save, logger);
             await testWorks.TestWorkProcess();
+            logger.Info("Завершение работы приложения");
         }
     }
 }

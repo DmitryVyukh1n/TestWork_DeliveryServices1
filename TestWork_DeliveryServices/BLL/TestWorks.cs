@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,7 @@ namespace TestWork_DeliveryServices.BLL
             }
             var filter = await _filterData.GetFilterData(parametr,file);
             await _save.Saves(parametr,filter);
+            
         }
     }
 }

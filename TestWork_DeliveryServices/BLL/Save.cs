@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace TestWork_DeliveryServices.BLL
 
         public async Task Saves(StartParametrs parametr, List<InputModel> inputModels)
         {
+            _logger.Info("Начинаем сохранение данных");
             using (StreamWriter writer = new StreamWriter(parametr.DeliveryOrder, append: true))
             {
                 foreach (var order in inputModels)
@@ -28,6 +30,7 @@ namespace TestWork_DeliveryServices.BLL
                     await writer.WriteLineAsync(orderInfo);  
                 }
             }
+            _logger.Info("Сохранение данных завершено");
         }
     }
 }
